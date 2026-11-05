@@ -2,7 +2,7 @@
 
 # S-Way (Smart-Way)
 
-|[Logo](assests/logo.png)
+![Logo](assests/logo.png)
 
 ### Intelligent Document Authenticity and Authorship Analysis System
 
