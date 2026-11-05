@@ -2,8 +2,6 @@
 
 # S-Way (Smart-Way)
 
-![Logo](assests/logo.png)
-
 ### Intelligent Document Authenticity and Authorship Analysis System
 
 **Beyond Similarity. Into Document Intelligence.**
