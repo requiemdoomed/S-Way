@@ -1,0 +1,21 @@
+[project]
+name = "s-way-research"
+version = "1.1.0"
+description = "Research notebooks, fixtures and browser tests for S-Way (SmartWay)"
+authors = [{ name = "Swayam Shakya" }]
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 160
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "S"]
+ignore = ["E501", "S101", "S311", "S603", "S607", "S310"]
+
+[tool.bandit]
+exclude_dirs = ["vendor", "node_modules"]
+skips = ["B101", "B311"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/e2e"]

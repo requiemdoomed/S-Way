@@ -1,0 +1,181 @@
+/* ==========================================================================
+   View-specific styles
+   ========================================================================== */
+
+/* ---------- Overview hero: the sheet rising out of the typewriter ---------- */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; padding-top: 1rem; }
+.hero-sheet {
+  width: min(36rem, 100%);
+  margin-bottom: -1.6rem;
+  padding: 2.25rem clamp(1.25rem, 4vw, 3rem) 3rem;
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 1;
+  transform: rotate(-.6deg);
+}
+.hero-sheet h1 {
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  line-height: 1;
+  margin-bottom: .35rem;
+}
+.hero-sheet .full-name { font-size: var(--step-1); margin: 0 0 1.25rem; color: var(--text-soft); }
+.typed {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .12em solid var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  color: var(--accent);
+  max-width: 100%;
+  animation: typing 2.6s steps(45, end) .4s both, caret .8s step-end 6;
+}
+@media (max-width: 640px) {
+  .typed { white-space: normal; animation: none; border-right: 0; }
+  .hero-sheet { transform: none; }
+}
+@keyframes typing { from { width: 0; } to { width: 45ch; } }
+@keyframes caret { 50% { border-color: transparent; } }
+.hero-sheet p.intro { margin-top: 1.25rem; }
+.typewriter-art { width: min(47rem, 100%); height: auto; position: relative; z-index: 2; }
+.tw-shadow { fill: rgba(30, 20, 12, .35); }
+.tw-roller { fill: #241A13; }
+.tw-knob { fill: #9A7B3F; stroke: #5e4824; stroke-width: 2; }
+.tw-knob-core { fill: #5e4824; }
+.tw-bail { fill: #9A7B3F; }
+.tw-body { fill: #4A3426; stroke: #241912; stroke-width: 3; }
+.tw-plate { fill: #33241A; stroke: #9A7B3F; stroke-width: 1.5; }
+.tw-badge { fill: #C9A15C; font-family: var(--font-display); font-size: 14px; letter-spacing: 2px; }
+.tw-keys circle { fill: #EDE3CC; stroke: #241A13; stroke-width: 5; }
+.tw-space { fill: #241A13; }
+.hero-actions { justify-content: center; margin-top: 1.25rem; }
+
+/* ---------- Dashboard: notes pinned to the wall ---------- */
+.pinboard { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.4rem; }
+.note {
+  display: flex; flex-direction: column; gap: .4rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  transition: transform .2s ease;
+  min-height: 9rem;
+}
+.note:nth-child(3n+1) { transform: rotate(-.7deg); }
+.note:nth-child(3n+2) { transform: rotate(.5deg); }
+.note:nth-child(3n) { transform: rotate(-.2deg); }
+.note:hover, .note:focus-visible { transform: rotate(0) translateY(-3px); color: var(--text); }
+.note::after {
+  /* brass drawing pin */
+  content: '';
+  position: absolute; top: -.45rem; left: 50%;
+  width: .95rem; height: .95rem; border-radius: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 35% 35%, #e3cb93, #9A7B3F 55%, #5e4824);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .45);
+}
+.note h3 { font-size: 1.3rem; margin: 0; }
+.note p { margin: 0; font-size: .95rem; color: var(--text-soft); }
+
+.format-list { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: .75rem 0; list-style: none; }
+.format-list li { border: 1px solid var(--rule-strong); padding: .1rem .55rem; font-size: .9rem; background: var(--surface-2); }
+
+/* ---------- Comparison workspace ---------- */
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.split-pane { min-width: 0; display: flex; flex-direction: column; gap: .5rem; }
+.text-pane {
+  height: 34rem; overflow: auto;
+  padding: 1rem 1.1rem;
+  background: color-mix(in srgb, var(--surface) 75%, white 25%);
+  border: 1px solid var(--rule);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: .97rem;
+  line-height: 1.65;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .text-pane { background: var(--surface-2); } }
+:root[data-theme="dark"] .text-pane { background: var(--surface-2); }
+.page-pane { overflow: auto; max-height: 40rem; border: 1px solid var(--rule); background: var(--surface-3); }
+.page-pane img, .page-pane canvas { display: block; transform-origin: top left; }
+.pager { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; font-size: var(--step--1); }
+@media (max-width: 760px) { .split { grid-template-columns: minmax(0, 1fr); } .text-pane { height: 22rem; } }
+
+/* ---------- Signature lab ---------- */
+.selector {
+  position: relative; display: inline-block; max-width: 100%;
+  touch-action: none; cursor: crosshair; user-select: none;
+  border: 1px solid var(--rule);
+}
+.selector img { display: block; max-width: 100%; height: auto; pointer-events: none; }
+.selector .sel-box {
+  position: absolute;
+  border: 2px dashed var(--accent);
+  background: rgba(139, 46, 36, .08);
+  box-shadow: 0 0 0 9999px rgba(30, 20, 12, .25);
+  pointer-events: none;
+}
+.sig-figs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.sig-figs figure { margin: 0; }
+.sig-figs figcaption { font-size: var(--step--1); color: var(--text-soft); margin-top: .3rem; }
+@media (max-width: 760px) { .sig-figs { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Report ---------- */
+.report-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: start; }
+.case-no { font-family: var(--font-display); color: var(--accent); font-size: 1rem; letter-spacing: .05em; }
+.disclaimer-band {
+  border: 2px solid var(--rule-strong);
+  outline: 1px solid var(--rule-strong);
+  outline-offset: 3px;
+  padding: .8rem 1rem;
+  margin: 1.25rem 0;
+  font-weight: 700;
+}
+.matrix td:first-child { font-weight: 700; }
+.finding { border-top: 1px dashed var(--rule); padding-top: 1rem; margin-top: 1rem; }
+.finding-id { font-family: var(--font-display); color: var(--accent); }
+.excerpt {
+  border-left: 3px solid var(--brass);
+  padding: .4rem .8rem;
+  margin: .5rem 0;
+  background: var(--surface-2);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: .95rem;
+}
+.report-nav { display: flex; flex-wrap: wrap; gap: .4rem 1rem; padding: 0; list-style: none; font-size: var(--step--1); }
+@media (max-width: 760px) { .report-head { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------- Privacy center: the switchboard ---------- */
+.switchboard { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: .9rem; padding: 0; list-style: none; }
+.switchboard li { border: 1px solid var(--rule); background: var(--surface-2); padding: .8rem .9rem; }
+.switchboard .lbl { font-size: var(--step--1); color: var(--text-soft); display: block; }
+.switchboard .val { font-family: var(--font-display); font-size: 1.15rem; display: block; margin: .15rem 0; }
+.switchboard .how { font-size: .82rem; color: var(--text-faint); }
+
+.dup-figure { margin: .75rem 0; max-width: 34rem; }
+.dup-figure canvas { width: 100%; height: auto; }
+
+/* ---------- Research notebooks viewer ---------- */
+.note.current { outline: 3px solid var(--brass); outline-offset: 3px; }
+.notebook .nb-md { max-width: 75ch; }
+.notebook .nb-md h2 { margin-top: 1.5rem; }
+.nb-cell { margin: 1rem 0; }
+.nb-code summary { cursor: pointer; font-size: var(--step--1); color: var(--text-soft); }
+.nb-code pre, .nb-text {
+  background: var(--surface-2); border-left: 3px solid var(--rule-strong);
+  padding: .6rem .8rem; overflow: auto; font-size: .85rem; line-height: 1.45; margin: .4rem 0; max-height: 28rem;
+}
+.nb-text { white-space: pre; }
+.nb-err { border-left-color: var(--accent); }
+.nb-img { max-width: 100%; height: auto; display: block; margin: .5rem 0; background: #fff; border: 1px solid var(--rule); }
+.sample-sets { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: .75rem; }
+.sample-sets .check { flex-direction: column; align-items: stretch; }
+.heat td.num { font-weight: 700; }
+.heat td[data-level="3"] { background: color-mix(in srgb, var(--accent) 38%, var(--surface)); }
+.heat td[data-level="2"] { background: color-mix(in srgb, var(--brass) 32%, var(--surface)); }
+.heat td[data-level="1"] { background: color-mix(in srgb, var(--moss) 18%, var(--surface)); }
+.sample-sets .check { justify-content: space-between; gap: .5rem; }
+.sample-sets .check .key { margin-top: auto; align-self: flex-start; }

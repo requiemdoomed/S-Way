@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+    Content Security Policy (delivered by meta tag so it also works on GitHub Pages).
+    Everything — scripts, fonts, OCR engine, language data, PDF engine — is served from
+    this site. No third-party origin is allowed, so documents cannot leave the browser.
+    frame-ancestors / Permissions-Policy cannot be set by meta: see deployment/_headers
+    and js/ui/frame-guard.js.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-src 'none'; media-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="S-Way (SmartWay): privacy-first document authenticity and authorship analysis that runs entirely in your browser.">
+  <meta name="author" content="Swayam Shakya">
+  <title>S-Way · SmartWay Document Intelligence</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/views.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <script src="js/ui/frame-guard.js"></script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#view">Skip to content</a>
+  <div id="sr-live" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="#/overview" aria-label="S-Way home">
+      <img src="assets/logo.svg" alt="" width="44" height="44">
+      <span class="brand-text">
+        <span class="brand-name">S-Way</span>
+        <span class="brand-sub">SmartWay document intelligence</span>
+      </span>
+    </a>
+    <div class="masthead-tools">
+      <span class="session-chip" id="session-chip" title="Documents held in this tab's memory">No documents</span>
+      <button type="button" class="key key-small" id="theme-toggle" aria-label="Switch between daylight and lamplight themes">Lamplight</button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="drawer" aria-label="Main">
+      <ul class="drawer-cards" id="nav">
+        <li><a href="#/overview" data-route="overview">Overview</a></li>
+        <li><a href="#/analysis" data-route="analysis">New analysis</a></li>
+        <li><a href="#/compare" data-route="compare">Document comparison</a></li>
+        <li><a href="#/handwriting" data-route="handwriting">Handwriting lab</a></li>
+        <li><a href="#/signature" data-route="signature">Signature lab</a></li>
+        <li><a href="#/source" data-route="source">Source investigation</a></li>
+        <li><a href="#/reports" data-route="reports">Analysis reports</a></li>
+        <li><a href="#/research" data-route="research">Research notebooks</a></li>
+        <li><a href="#/privacy" data-route="privacy">Privacy center</a></li>
+        <li><a href="#/settings" data-route="settings">Settings</a></li>
+        <li><a href="#/about" data-route="about">About S-Way</a></li>
+      </ul>
+    </nav>
+
+    <main id="view" tabindex="-1">
+      <noscript>
+        <div class="sheet"><p>S-Way analyses documents inside your browser and needs JavaScript to run. Nothing is uploaded anywhere.</p></div>
+      </noscript>
+    </main>
+  </div>
+
+  <footer class="colophon">
+    <p>S-Way (SmartWay): Intelligent Document Authenticity and Authorship Analysis System — created by <strong>Swayam Shakya</strong>.</p>
+    <p class="fine">S-Way does not establish identity, misconduct, forgery, or plagiarism as a final determination. Findings require appropriate human examination.</p>
+  </footer>
+
+  <dialog id="confirm-dialog" class="sheet dialog" aria-labelledby="confirm-title">
+    <h2 id="confirm-title">Please confirm</h2>
+    <p id="confirm-message"></p>
+    <div class="button-row">
+      <button type="button" class="key key-quiet" value="cancel" id="confirm-cancel">Cancel</button>
+      <button type="button" class="key" value="ok" id="confirm-ok">Continue</button>
+    </div>
+  </dialog>
+
+  <!-- Decorative typewriter (static, trusted markup) used on the overview page. -->
+  <template id="tpl-typewriter">
+    <svg class="typewriter-art" viewBox="0 0 520 230" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="tw-grain" width="6" height="6" patternUnits="userSpaceOnUse">
+          <path d="M0 3h6" stroke="#000" stroke-opacity=".08" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <ellipse cx="260" cy="214" rx="230" ry="12" class="tw-shadow"/>
+      <rect x="62" y="6" width="396" height="34" rx="17" class="tw-roller"/>
+      <rect x="62" y="6" width="396" height="34" rx="17" fill="url(#tw-grain)"/>
+      <circle cx="44" cy="23" r="21" class="tw-knob"/>
+      <circle cx="476" cy="23" r="21" class="tw-knob"/>
+      <circle cx="44" cy="23" r="8" class="tw-knob-core"/>
+      <circle cx="476" cy="23" r="8" class="tw-knob-core"/>
+      <rect x="120" y="40" width="280" height="5" rx="2" class="tw-bail"/>
+      <path d="M78 48 H442 L498 196 Q500 204 490 204 H30 Q20 204 22 196 Z" class="tw-body"/>
+      <path d="M96 56 H424 L436 86 H84 Z" class="tw-plate"/>
+      <text x="260" y="77" text-anchor="middle" class="tw-badge">S-WAY · MODEL 86</text>
+      <g class="tw-keys">
+        <circle cx="96" cy="108" r="12"/><circle cx="128" cy="108" r="12"/><circle cx="160" cy="108" r="12"/><circle cx="192" cy="108" r="12"/><circle cx="224" cy="108" r="12"/><circle cx="256" cy="108" r="12"/><circle cx="288" cy="108" r="12"/><circle cx="320" cy="108" r="12"/><circle cx="352" cy="108" r="12"/><circle cx="384" cy="108" r="12"/><circle cx="416" cy="108" r="12"/>
+        <circle cx="110" cy="138" r="12"/><circle cx="142" cy="138" r="12"/><circle cx="174" cy="138" r="12"/><circle cx="206" cy="138" r="12"/><circle cx="238" cy="138" r="12"/><circle cx="270" cy="138" r="12"/><circle cx="302" cy="138" r="12"/><circle cx="334" cy="138" r="12"/><circle cx="366" cy="138" r="12"/><circle cx="398" cy="138" r="12"/>
+        <circle cx="126" cy="168" r="12"/><circle cx="158" cy="168" r="12"/><circle cx="190" cy="168" r="12"/><circle cx="222" cy="168" r="12"/><circle cx="254" cy="168" r="12"/><circle cx="286" cy="168" r="12"/><circle cx="318" cy="168" r="12"/><circle cx="350" cy="168" r="12"/><circle cx="382" cy="168" r="12"/>
+      </g>
+      <rect x="170" y="186" width="180" height="11" rx="5" class="tw-space"/>
+    </svg>
+  </template>
+</body>
+</html>

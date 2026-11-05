@@ -1,0 +1,31 @@
+/* Typefaces are served from this site (no font CDN, no third-party requests).
+   Special Elite — Astigma, Apache License 2.0.
+   Courier Prime — Alan Dague-Greene for Quote-Unquote Apps, SIL Open Font License 1.1. */
+@font-face {
+  font-family: 'Special Elite';
+  src: url('../vendor/fonts/special-elite-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('../vendor/fonts/courier-prime-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('../vendor/fonts/courier-prime-latin-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('../vendor/fonts/courier-prime-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

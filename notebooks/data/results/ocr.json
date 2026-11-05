@@ -1,0 +1,31 @@
+{
+  "ocr": {
+    "warn_below_confidence": 70
+  },
+  "metrics": {
+    "confidence": {
+      "blur": 95.2427,
+      "clean": 95.7065,
+      "jpeg": 95.8,
+      "lowres": 95.4142,
+      "noise": 95.5522,
+      "rotate": 95.2924
+    },
+    "cer": {
+      "blur": 0.0058,
+      "clean": 0.002,
+      "jpeg": 0.0004,
+      "lowres": 0.0015,
+      "noise": 0.0133,
+      "rotate": 0.0026
+    },
+    "wer": {
+      "blur": 0.0311,
+      "clean": 0.0089,
+      "jpeg": 0.002,
+      "lowres": 0.008,
+      "noise": 0.0245,
+      "rotate": 0.014
+    }
+  }
+}

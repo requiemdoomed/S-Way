@@ -1,0 +1,9 @@
+node_modules/
+vendor-src/node_modules/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+notebooks/data/generated/
+.env
+.DS_Store
+test-results/

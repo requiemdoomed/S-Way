@@ -1,0 +1,51 @@
+name: Test and deploy S-Way
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: sudo apt-get update && sudo apt-get install -y tesseract-ocr
+      - run: pip install -r requirements.txt && python -m playwright install --with-deps chromium
+      - run: python tools/make_fixtures.py
+      - run: npm test
+      - run: python -m pytest tests/e2e -q
+      - run: python tools/secret_scan.py
+      - run: bandit -q -r tools notebooks/sway_research.py -c pyproject.toml
+      - run: ruff check tools notebooks/sway_research.py tests/e2e
+      - run: pip-audit -r requirements.txt
+      - run: cd vendor-src && npm audit --audit-level=moderate
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble the public site (application files only)
+        run: |
+          mkdir _site
+          cp -r index.html .nojekyll assets css js vendor models _site/
+          mkdir -p _site/notebooks && cp notebooks/index.json notebooks/*.ipynb _site/notebooks/
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+      - id: deployment
+        uses: actions/deploy-pages@v4

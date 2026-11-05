@@ -1,0 +1,12 @@
+/* Printing / "Save as PDF" of the analysis report. Only the report sheet is printed. */
+@page { margin: 16mm 14mm; }
+html, body { background: #fff !important; color: #000 !important; }
+body * { visibility: hidden; }
+.printable, .printable * { visibility: visible; }
+.printable { position: absolute; left: 0; top: 0; width: 100%; box-shadow: none !important; padding: 0 !important; transform: none !important; background: #fff !important; }
+.no-print, .masthead, .drawer, .colophon, .button-row, .tabs, .chart-box { display: none !important; }
+.ledger thead th { position: static; }
+.table-wrap { overflow: visible; border: 0; }
+.finding, .ledger tr, .excerpt { break-inside: avoid; }
+.stamp { mask-image: none; transform: none; }
+a[href]::after { content: ''; }

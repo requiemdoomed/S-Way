@@ -1,0 +1,41 @@
+{
+  "perspective": {
+    "photos": 16,
+    "sheet_found": 16,
+    "mean_corner_error_px": 7.807022761559745,
+    "cer_raw_photo_mean": 0.4419633047307222,
+    "cer_rectified_mean": 0.001239219426863527
+  },
+  "copy_move": {
+    "clean": {
+      "pages": 26,
+      "flagged": 0.0,
+      "correct": 0.0
+    },
+    "large paste": {
+      "pages": 26,
+      "flagged": 0.6538461538461539,
+      "correct": 0.6538461538461539
+    },
+    "large, JPEG q70": {
+      "pages": 26,
+      "flagged": 0.6153846153846154,
+      "correct": 0.6153846153846154
+    },
+    "large, rescaled 90%": {
+      "pages": 26,
+      "flagged": 0.0,
+      "correct": 0.0
+    },
+    "medium paste": {
+      "pages": 26,
+      "flagged": 0.5384615384615384,
+      "correct": 0.5384615384615384
+    },
+    "small paste": {
+      "pages": 26,
+      "flagged": 0.2692307692307692,
+      "correct": 0.2692307692307692
+    }
+  }
+}

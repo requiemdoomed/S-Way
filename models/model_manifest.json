@@ -1,0 +1,12 @@
+{
+  "description": "Trusted model registry. Only artifacts listed here, with matching SHA-256 digests, are loaded by the app.",
+  "artifacts": [
+    {
+      "file": "calibration.json",
+      "kind": "thresholds",
+      "sha256": "40c5227b22c4c7ce35c9ee9fd23269d545cc3b9a836b684dfe68cab60e87e350",
+      "produced_by": "notebooks/05_export_calibration.ipynb"
+    }
+  ],
+  "neural_models": []
+}

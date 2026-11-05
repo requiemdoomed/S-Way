@@ -1,0 +1,124 @@
+/* ---------- Masthead: a strip of old walnut panelling ---------- */
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .75rem clamp(1rem, 3vw, 2rem);
+  color: #EDE3CC;
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .12) 0 2px, transparent 2px 140px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, #5A3F2D, #3B2A1E 70%, #2E2117);
+  border-bottom: 3px solid #241912;
+  box-shadow: 0 3px 0 rgba(154, 123, 63, .5), 0 8px 18px -8px rgba(0, 0, 0, .6);
+  position: relative;
+  z-index: 5;
+}
+.brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: inherit; }
+.brand img { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .5)); }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-name { font-family: var(--font-display); font-size: 1.75rem; letter-spacing: .02em; }
+.brand-sub { font-size: .8rem; color: #CDB995; }
+.masthead-tools { display: flex; align-items: center; gap: .75rem; }
+.session-chip {
+  font-size: .8rem;
+  padding: .2rem .6rem;
+  border: 1px dashed rgba(237, 227, 204, .45);
+  border-radius: 2px;
+  color: #E4D6B6;
+  white-space: nowrap;
+}
+
+/* ---------- Shell ---------- */
+.shell {
+  overflow-x: clip;
+  display: grid;
+  grid-template-columns: 15.5rem minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 2.25rem);
+  max-width: 92rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+/* ---------- Drawer of index cards ---------- */
+.drawer {
+  position: sticky;
+  top: 1rem;
+}
+.drawer-cards {
+  list-style: none;
+  margin: 0;
+  padding: .9rem .6rem 1.2rem;
+  background: linear-gradient(180deg, #3E2C20, #2C1F16);
+  border: 2px solid #241912;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, .55), 0 10px 22px -14px rgba(0, 0, 0, .7);
+}
+.drawer-cards li + li { margin-top: -.15rem; }
+.drawer-cards a {
+  display: block;
+  position: relative;
+  padding: .55rem .8rem .55rem 1.05rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: #E6DABF;
+  border: 1px solid #B9A37F;
+  border-radius: 3px 3px 2px 2px;
+  font-size: .97rem;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .25);
+  transition: transform .18s ease, background-color .18s ease;
+}
+.drawer-cards a::before {
+  /* the faded red rule printed on every index card */
+  content: '';
+  position: absolute;
+  left: .45rem; top: .35rem; bottom: .35rem;
+  width: 2px;
+  background: rgba(139, 46, 36, .55);
+}
+.drawer-cards a:hover { background: #EFE5CF; transform: translateX(3px); color: var(--ink); }
+.drawer-cards a[aria-current="page"] {
+  background: #F4ECD9;
+  transform: translateX(10px);
+  font-weight: 700;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .3), -4px 0 0 var(--brass) inset;
+}
+
+/* ---------- Main ---------- */
+main { min-width: 0; outline: none; }
+main:focus, main:focus-visible { outline: none; }
+main > * + * { margin-top: 1.5rem; }
+
+/* ---------- Colophon ---------- */
+.colophon {
+  max-width: 92rem;
+  margin: 1rem auto 0;
+  padding: 1.5rem clamp(1rem, 3vw, 2rem) 2.5rem;
+  color: var(--text);
+  border-top: 1px solid var(--rule);
+}
+.colophon p { margin: .25rem 0; max-width: none; }
+
+/* ---------- Narrow screens: the drawer becomes a strip of tabs ---------- */
+@media (max-width: 900px) {
+  .shell { grid-template-columns: minmax(0, 1fr); padding-top: .75rem; }
+  .drawer { position: static; }
+  .drawer-cards {
+    display: flex;
+    gap: .35rem;
+    overflow-x: auto;
+    padding: .55rem;
+    scrollbar-width: thin;
+  }
+  .drawer-cards li + li { margin-top: 0; }
+  .drawer-cards a { white-space: nowrap; padding: .4rem .7rem .4rem .95rem; font-size: .9rem; }
+  .drawer-cards a[aria-current="page"] { transform: translateY(3px); box-shadow: 0 -3px 0 var(--brass) inset; }
+  .drawer-cards a:hover { transform: none; }
+  .brand-sub { display: none; }
+}
+@media (max-width: 480px) {
+  .session-chip { display: none; }
+  .brand-name { font-size: 1.4rem; }
+}

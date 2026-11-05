@@ -1,0 +1,66 @@
+{
+  "handwriting_scales": {
+    "slantDeg": 8.4445,
+    "slantSpread": 3.1578,
+    "strokeWidthRatio": 0.0206,
+    "wordGapRatio": 0.1578,
+    "charGapRatio": 0.12,
+    "lineSpacingRatio": 0.2953,
+    "baselineVariation": 0.0034,
+    "componentAspect": 0.0414,
+    "ascenderRate": 0.0556,
+    "connectedness": 0.3393,
+    "inkDensity": 0.0198,
+    "marginRegularity": 0.0009,
+    "compactness": 0.6012,
+    "writingSize": 0.0056,
+    "hingeWeight": 1.415,
+    "whiteRunWeight": 0.543
+  },
+  "handwriting_fusion": {
+    "highMeanZ": 1.601,
+    "modMeanZ": 2.127
+  },
+  "signature_fusion": {
+    "highOverlap": 0.282,
+    "highChamfer": 5.83,
+    "modOverlap": 0.219,
+    "modChamfer": 8.92
+  },
+  "metrics": {
+    "handwriting_test_auc_v10": 0.9840185185185185,
+    "handwriting_test_auc": 0.9948888888888889,
+    "handwriting_test_eer_v10": 0.07403703703703704,
+    "handwriting_test_eer": 0.03551851851851852,
+    "hinge_only_test_auc": 0.9899814814814815,
+    "robustness": [
+      {
+        "degradation": "blur",
+        "auc_v10": 0.9660493827160493,
+        "auc_v11": 0.9667755991285403
+      },
+      {
+        "degradation": "noise",
+        "auc_v10": 0.9874727668845316,
+        "auc_v11": 0.9940087145969498
+      },
+      {
+        "degradation": "rotate",
+        "auc_v10": 0.9871096586782862,
+        "auc_v11": 0.9938271604938271
+      },
+      {
+        "degradation": "lowres",
+        "auc_v10": 0.9773057371096586,
+        "auc_v11": 0.9807552650689906
+      },
+      {
+        "degradation": "jpeg",
+        "auc_v10": 0.9880174291938998,
+        "auc_v11": 0.9945533769063181
+      }
+    ],
+    "signature_auc_random": 1.0,
+    "signature_auc_skilled": 0.9470833333333334
+  }
+}

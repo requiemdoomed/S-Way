@@ -1,0 +1,18 @@
+# Security headers for static hosts that support a _headers file
+# (Netlify, Cloudflare Pages). Copy this file to the site root when deploying there.
+# GitHub Pages CANNOT set headers: S-Way then relies on its <meta> CSP and the
+# JavaScript frame guard (see docs/SECURITY.md, "Residual risks").
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; frame-src 'none'; media-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), clipboard-read=()
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+/tests/*
+  X-Robots-Tag: noindex
+/notebooks/*
+  X-Robots-Tag: noindex

@@ -1,0 +1,40 @@
+{
+  "generated": "2026-11-04",
+  "notebooks": [
+    {
+      "file": "00_dataset_exploration.ipynb",
+      "title": "00 \u00b7 Dataset exploration",
+      "summary": "Corpus statistics, function-word profiles, and examples of every synthetic image type and test fixture."
+    },
+    {
+      "file": "01_text_similarity_benchmark.ipynb",
+      "title": "01 \u00b7 Text similarity benchmark and threshold calibration",
+      "summary": "250-pair benchmark of verbatim and paraphrased insertions; Moderate/High thresholds with precision, recall and error analysis."
+    },
+    {
+      "file": "02_stylometry_evaluation.ipynb",
+      "title": "02 \u00b7 Stylometry evaluation",
+      "summary": "Same- vs different-author separation by text length, label thresholds, supervised attribution on unseen books, clustering."
+    },
+    {
+      "file": "03_handwriting_signature_synthetic.ipynb",
+      "title": "03 \u00b7 Handwriting and signature features on synthetic data",
+      "summary": "Writer-disjoint evaluation of handwriting features, edge-hinge ablation, robustness to degradations; genuine vs forged synthetic signatures."
+    },
+    {
+      "file": "04_ocr_evaluation.ipynb",
+      "title": "04 \u00b7 OCR quality under scanning conditions",
+      "summary": "Tesseract character and word error rates under noise, blur, rotation, low resolution and JPEG; confidence on handwriting."
+    },
+    {
+      "file": "05_export_calibration.ipynb",
+      "title": "05 \u00b7 Export the calibration artifact",
+      "summary": "Combines the fitted thresholds into models/calibration.json and records its SHA-256 digest."
+    },
+    {
+      "file": "06_preprocessing_and_tampering.ipynb",
+      "title": "06 \u00b7 Photographed pages and copy-move screening",
+      "summary": "Perspective correction of phone photos (corner error, OCR before/after) and copy-move detection by paste size, with false-alarm rates."
+    }
+  ]
+}

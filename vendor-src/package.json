@@ -1,0 +1,14 @@
+{
+  "name": "s-way-vendor-src",
+  "private": true,
+  "description": "Pinned sources of the files copied into ../vendor. Used only for re-vendoring and `npm audit`.",
+  "dependencies": {
+    "pdfjs-dist": "6.5.438",
+    "tesseract.js": "7.0.0",
+    "tesseract.js-core": "7.0.0",
+    "@tesseract.js-data/eng": "1.0.0",
+    "chart.js": "4.6.1",
+    "@fontsource/special-elite": "5.3.0",
+    "@fontsource/courier-prime": "5.3.0"
+  }
+}

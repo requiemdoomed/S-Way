@@ -1,0 +1,35 @@
+{
+  "style_fusion": {
+    "highAgreement": 0.5,
+    "highMaxDisagreement": 0.1,
+    "modAgreement": 0.4,
+    "modMaxDisagreement": 0.15
+  },
+  "metrics": {
+    "auc_by_length": [
+      {
+        "words": 300,
+        "auc_agreement": 0.6269135802469136,
+        "auc_low_disagreement": 0.6034567901234568,
+        "auc_cosine": 0.6565432098765431
+      },
+      {
+        "words": 1000,
+        "auc_agreement": 0.7293827160493827,
+        "auc_low_disagreement": 0.768395061728395,
+        "auc_cosine": 0.608641975308642
+      },
+      {
+        "words": 2500,
+        "auc_agreement": 0.8990123456790123,
+        "auc_low_disagreement": 0.9437037037037037,
+        "auc_cosine": 0.6348148148148148
+      }
+    ],
+    "attribution_accuracy_unseen_book": [
+      1.0,
+      1.0,
+      0.9166666666666666
+    ]
+  }
+}

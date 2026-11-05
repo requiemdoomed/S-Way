@@ -1,0 +1,20 @@
+{
+  "text_fusion": {
+    "modCoverage": 0.03,
+    "modContainment": 0.2,
+    "modParaphrase": 0.4,
+    "modTfidf": 1.0,
+    "highCoverage": 0.2,
+    "highContainment": 0.6,
+    "highSentenceRate": 0.3
+  },
+  "metrics": {
+    "moderate_precision": 1.0,
+    "moderate_recall": 0.9875,
+    "moderate_f1": 0.9937106918238994,
+    "moderate_fpr": 0.0,
+    "high_recall": 1.0,
+    "high_fpr": 0.01639344262295082,
+    "n_pairs": 250
+  }
+}

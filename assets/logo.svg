@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">S-Way typewriter key</title>
+  <circle cx="32" cy="34" r="27" fill="#9A7B3F"/>
+  <circle cx="32" cy="34" r="23.5" fill="#2B1F17"/>
+  <circle cx="32" cy="31" r="22" fill="#3A2A1F"/>
+  <circle cx="32" cy="30" r="19" fill="#EDE3CC"/>
+  <path d="M39.5 21.5c-2-2-4.6-3-7.6-3-4.6 0-7.8 2.5-7.8 6 0 3.4 2.8 4.8 7.2 5.9 4.4 1.1 6.4 2.2 6.4 4.8 0 2.6-2.6 4.4-6.2 4.4-3.3 0-6-1.3-7.8-3.6" fill="none" stroke="#2B1F17" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M20 44c6-3 16-3 24 0" fill="none" stroke="#8B2E24" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 3"/>
+</svg>
