@@ -1,6 +1,9 @@
 <div align="center">
 
-# S-Way · SmartWay
+# S-Way (Smart-Way)
+
+(docs/screenshots/overview.png)
+
 ### Intelligent Document Authenticity and Authorship Analysis System
 
 **Beyond Similarity. Into Document Intelligence.**
