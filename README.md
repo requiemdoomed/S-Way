@@ -5,44 +5,17 @@
 
 **Beyond Similarity. Into Document Intelligence.**
 
-Designed, built and documented by **Swayam Shakya**
-
-Version 1.1.0 · MIT licence · Runs entirely in your browser — no server, no uploads, no tracking
+Runs entirely in your browser — no server, no uploads, no tracking
 
 </div>
 
-![S-Way overview: a sheet of paper feeding out of a 1980s typewriter](docs/screenshots/overview.png)
+![S-Way overview](docs/screenshots/overview.png)
 
 > **Important.** S-Way does not establish identity, misconduct, forgery, or plagiarism as a final determination. Findings require appropriate human examination.
 
 ---
 
-## Contents
-
-1. [What S-Way is](#1-what-s-way-is)
-2. [Highlights](#2-highlights)
-3. [Screenshots](#3-screenshots)
-4. [Quick start (run it in 30 seconds)](#4-quick-start)
-5. [Publishing on GitHub and GitHub Pages](#5-publishing-on-github-and-github-pages)
-6. [Using S-Way, step by step](#6-using-s-way-step-by-step)
-7. [The seven lines of evidence](#7-the-seven-lines-of-evidence)
-8. [The computer-vision pipeline](#8-the-computer-vision-pipeline)
-9. [How results are combined and reported](#9-how-results-are-combined-and-reported)
-10. [Research notebooks (Jupyter)](#10-research-notebooks-jupyter)
-11. [Measured results](#11-measured-results)
-12. [Security and privacy](#12-security-and-privacy)
-13. [Project structure](#13-project-structure)
-14. [Developer tools](#14-developer-tools)
-15. [Testing and quality](#15-testing-and-quality)
-16. [Limits and configuration](#16-limits-and-configuration)
-17. [Known limitations](#17-known-limitations)
-18. [Roadmap](#18-roadmap)
-19. [Credits and licences](#19-credits-and-licences)
-20. [Author](#20-author)
-
----
-
-## 1. What S-Way is
+## Overview
 
 Teachers, integrity officers and researchers regularly face questions such as *"did these two students share work?"*, *"was this page written by the same hand?"*, *"where did this paragraph come from?"* or *"has this scanned page been edited?"*. The usual answer is a single opaque similarity percentage — often produced by uploading private documents to a third-party service.
 
@@ -55,7 +28,7 @@ S-Way takes a different approach:
 
 The interface is styled as **a 1980s typewriter left in an abandoned house**: cream and beige paper sheets, walnut panelling, faded damask wallpaper, brass pins, and rubber-stamped verdicts. A *Lamplight* (dark) theme shows the same room after dark.
 
-## 2. Highlights
+## Highlights
 
 | | |
 |---|---|
@@ -69,7 +42,7 @@ The interface is styled as **a 1980s typewriter left in an abandoned house**: cr
 | 🧪 **113 automated tests** | 84 unit + 29 browser tests, all passing; ruff, bandit, pip-audit, npm audit clean |
 | 📱 **Responsive & accessible** | Works on phones; keyboard navigation; labels never rely on colour alone |
 
-## 3. Screenshots
+## Screenshots
 
 | | |
 |---|---|
@@ -81,7 +54,7 @@ The interface is styled as **a 1980s typewriter left in an abandoned house**: cr
 
 <p align="center"><img src="docs/screenshots/mobile.png" alt="S-Way on a phone" width="260"></p>
 
-## 4. Quick start
+## Quick start
 
 **Requirements:** a modern browser (Chrome, Edge, Firefox, Safari) and, for the local server, Node.js 20 or newer. No `npm install` is needed — every library is bundled in `vendor/`.
 
@@ -97,37 +70,7 @@ npm start            # → open http://127.0.0.1:8000
 
 **No documents to hand?** On *New analysis*, open **"Try a sample set"** and load essays, handwritten pages, signatures, or a phone photo with a tampered page.
 
-## 5. Publishing on GitHub and GitHub Pages
-
-The repository root *is* the website: `index.html` sits at the top level and loads everything else by relative path (`css/`, `js/`, `vendor/`, `assets/`, `models/`, `notebooks/`).
-
-### Upload the project
-
-The project has about 410 files. GitHub's web uploader accepts at most 100 files per upload, so use **git** (or GitHub Desktop):
-
-```bash
-cd S-Way                       # the unzipped folder that contains index.html
-git init
-git add .
-git commit -m "S-Way 1.1.0 by Swayam Shakya"
-git branch -M main
-git remote add origin https://github.com/<your-username>/S-Way.git
-git push -u origin main
-```
-
-No file comes close to GitHub's 100 MB limit (the largest is ≈ 4.3 MB).
-
-### Turn on GitHub Pages — choose one
-
-**A. GitHub Actions (recommended).** *Settings → Pages → Source: GitHub Actions.* The included workflow `.github/workflows/ci-and-pages.yml` runs all unit, browser, security and audit checks, then publishes only the application files plus the executed notebooks. Your site appears at `https://<your-username>.github.io/S-Way/`.
-
-**B. Deploy from a branch (simplest).** *Settings → Pages → Source: Deploy from a branch → `main` / `(root)`.* The whole repository is served as is (`.nojekyll` is included so every folder is published).
-
-Keep **Enforce HTTPS** ticked. GitHub Pages cannot send custom security headers, so S-Way relies on its `<meta>` Content-Security-Policy and JavaScript frame guard there; for full headers use Netlify/Cloudflare Pages with `deployment/_headers`, or the hardened nginx container — see [deployment/deployment-guide.md](deployment/deployment-guide.md).
-
-**After deploying:** open *Privacy center* and check "Cookies: None set", "External processing: 0 outside requests", "Model thresholds: Verified (SHA-256)", "Secure context: Yes".
-
-## 6. Using S-Way, step by step
+## Using S-Way, step by step
 
 1. **New analysis.** Drop up to 10 files (PDF, PNG, JPEG, WEBP, DOCX, TXT; 15 MB each, 40 MB total, 50 PDF pages) onto the sheet. Each file is checked by its *contents*; disguised or dangerous files are stamped **Rejected** with the reason.
 2. **Describe each document (optional).** *Role*: reference, under examination, known/unknown writing sample, source material, assignment submission. *Content*: digital text, printed/scanned page, handwritten page, signature, or automatic. S-Way never assumes the first file is the authentic one.
@@ -140,7 +83,7 @@ Keep **Enforce HTTPS** ticked. GitHub Pages cannot send custom security headers,
 
 **Correcting OCR.** Handwriting and poor scans produce imperfect text. *Document comparison → Review & correct text* lets you fix it; the original extraction is kept and can be restored, and reports say when corrected text was used.
 
-## 7. The seven lines of evidence
+## The seven lines of evidence
 
 | Module | What it measures | Methods |
 |---|---|---|
@@ -152,51 +95,7 @@ Keep **Enforce HTTPS** ticked. GitHub Pages cannot send custom security headers,
 | **Layout & formatting** | Page geometry and typography | Margins, line spacing/height, density, utilisation, edge alignment, indentation; PDF/DOCX font and size distributions, page numbering, page size; aligned page overlays |
 | **Anomaly screening** | Parts of a document unlike the rest | Robust z-scores (median/MAD) + Isolation Forest over text segments, handwriting lines and pages; **copy-move duplicated regions**; PDF/DOCX metadata date checks |
 
-## 8. The computer-vision pipeline
-
-```
- image / PDF page
-      │
-      ▼
- header check (dimensions before decoding) ─► reject decompression bombs
-      │
-      ▼
- phone photo?  ── paper mask → largest component → 4 extreme corners
-      │            └─► homography (8×8 solve) → perspective warp   (before OCR too)
-      ▼
- working copy: resize ≤ 1800 px → 3×3 denoise → 1–99 % contrast stretch
-      │
-      ▼
- Sauvola adaptive threshold (integral images) → orientation check
-      │
-      ▼
- deskew (projection-profile energy, ±6°) → despeckle → text-line segmentation
-      │
-      ├─► handwriting features (geometry + direction, LBP, edge-hinge, white-run)
-      ├─► layout measurements
-      ├─► signature region suggestion
-      └─► copy-move screening:
-            integer binning + blur → 12×12 block descriptors (16 cell means)
-            → lexicographic sort → near-identical far-apart pairs → shift votes
-            → spatial clustering → direct shift verification (≥ 80 % of blocks)
-            → pixel correlation ≥ 0.9 → must span > 1.6 text lines
-```
-
-Every operation applied to a page is recorded and listed in the report. Originals are never modified.
-
-## 9. How results are combined and reported
-
-The **evidence-fusion** engine (`js/core/fusion.js`):
-
-1. records which modules ran, were skipped (and why) or failed;
-2. turns each module's measurements into a qualitative label — *High / Moderate / Low / Inconclusive*, *Potential match / Limited overlap / No match*, or *N regions to review* — using thresholds from `models/calibration.json`;
-3. lowers reliability for short texts, OCR confidence below 70 %, machine-read handwriting and poor images;
-4. flags **conflicts** (e.g. high text similarity but low style similarity) with plain-language interpretations;
-5. lists **alternative explanations** for every module.
-
-It never averages modules and never outputs a probability. Reports avoid accusatory language (a browser test checks for words such as "forged" or "cheated").
-
-## 10. Research notebooks (Jupyter)
+## Research notebooks (Jupyter)
 
 Open **Research notebooks** in the app to read them, or run them yourself. They call the shipped JavaScript engines through `tools/sway-cli.mjs`, so every number describes the real implementation.
 
@@ -219,7 +118,7 @@ jupyter notebook notebooks/            # interactive exploration
 
 **Data.** Project Gutenberg texts (public domain, via the NLTK data repository) in `notebooks/data/gutenberg/`. All images are synthetic and generated by code — no personal data. Real handwriting/signature datasets (IAM, CVL, CEDAR, GPDS) require licence agreements and were not used.
 
-## 11. Measured results
+## Measured results
 
 From the executed notebooks (details in [docs/MODEL_CARD.md](docs/MODEL_CARD.md)):
 
@@ -238,7 +137,7 @@ From the executed notebooks (details in [docs/MODEL_CARD.md](docs/MODEL_CARD.md)
 
 Handwriting and signature numbers come from synthetic data and **do not** estimate real-world accuracy.
 
-## 12. Security and privacy
+## Security and privacy
 
 | Area | Controls |
 |---|---|
@@ -251,63 +150,7 @@ Handwriting and signature numbers come from synthetic data and **do not** estima
 
 Full details: [SECURITY.md](docs/SECURITY.md) · [PRIVACY.md](docs/PRIVACY.md) · [SECURITY_AUDIT.md](docs/SECURITY_AUDIT.md)
 
-## 13. Project structure
-
-```
-S-Way/
-├── index.html                 ← the app: loads css/, js/, vendor/ (GitHub Pages entry point)
-├── README.md  CHANGELOG.md  LICENSE  package.json  requirements.txt  pyproject.toml  .env.example
-├── assets/
-│   ├── logo.svg
-│   └── samples/               ← sample documents for "Try a sample set"
-├── css/                       ← fonts, theme tokens (daylight/lamplight), layout, components, views, print
-├── js/
-│   ├── app.js  config.js  dom.js
-│   ├── security/              ← validation, zip-reader, image-header, sanitize, rate-limiter, resource-limits, blob-registry
-│   ├── engines/               ← preprocess, extract (OCR), imaging, text-utils, text-similarity, stylometry,
-│   │                             handwriting, signature, source-matching, layout, anomaly, tamper
-│   ├── core/                  ← orchestrator, analysis-worker, fusion, calibration, state, export, report-store
-│   └── ui/                    ← one view per page + research (notebook viewer), common, charts, render-helpers, frame-guard
-├── vendor/                    ← PDF.js, Tesseract.js (+ WASM core + English data), Chart.js, fonts — all local
-├── models/                    ← calibration.json + model_manifest.json (SHA-256 registry)
-├── notebooks/                 ← 00–06 executed notebooks, index.json, sway_research.py, data/gutenberg/
-├── tools/                     ← serve, build_notebooks, sway-cli, make_fixtures, png-gray, secret_scan
-├── tests/
-│   ├── unit/                  ← security, engines, vision, privacy  (node --test)
-│   ├── e2e/                   ← Playwright browser tests (pytest)
-│   └── fixtures/              ← controlled test files incl. harmless "attack" files
-├── docs/                      ← ARCHITECTURE, SECURITY, PRIVACY, SECURITY_AUDIT, MODEL_CARD, TESTING, LIMITATIONS, screenshots/
-├── deployment/                ← _headers, nginx.conf, Dockerfile, deployment-guide.md
-├── vendor-src/                ← pinned package manifest of the vendored libraries (for npm audit / re-vendoring)
-└── .github/workflows/         ← CI + GitHub Pages deployment
-```
-
-## 14. Developer tools
-
-| Command | Purpose |
-|---|---|
-| `npm start` | Local server with production security headers (`tools/serve.mjs`) |
-| `npm test` | 84 unit tests |
-| `npm run test:e2e` | 29 Playwright browser tests |
-| `npm run fixtures` | Regenerate test fixtures (`tools/make_fixtures.py`) |
-| `npm run notebooks` | Rebuild and execute all research notebooks; rewrite calibration |
-| `npm run audit:secrets` | Local secret scan |
-| `node tools/sway-cli.mjs request.json` | Run any shipped engine from the command line (used by the notebooks) |
-
-## 15. Testing and quality
-
-| Suite | Tests | Result |
-|---|---:|---|
-| Upload & resource security (unit) | 45 | ✅ |
-| Analysis engines (unit) | 23 | ✅ |
-| Computer vision (unit) | 7 | ✅ |
-| Privacy & static code rules (unit) | 9 | ✅ |
-| Browser end-to-end (Playwright) | 29 | ✅ |
-| **Total** | **113** | **all passing** |
-
-Plus `ruff` (clean), `bandit` (0 medium/high), `pip-audit` (no known vulnerabilities), `npm audit` (0), secret scan (0). Typical analysis times: 1.5 s for three text documents, ≈ 7 s for three scanned images with OCR. See [docs/TESTING.md](docs/TESTING.md).
-
-## 16. Limits and configuration
+## Limits and configuration
 
 All limits live in `js/config.js`:
 
@@ -322,7 +165,7 @@ All limits live in `js/config.js`:
 | Rate limits (per 10 min) | analyses 5, uploads 10, OCR 10, visual/ML 5, exports 10 |
 | Idle auto-clear | 30 minutes |
 
-## 17. Known limitations
+## Known limitations
 
 - OCR is English-only and trained on print; handwriting OCR is poor — use the text correction view.
 - Paraphrase detection is lexical; heavy rewording is missed. No internet source search.
@@ -333,18 +176,7 @@ All limits live in `js/config.js`:
 
 Full list: [docs/LIMITATIONS.md](docs/LIMITATIONS.md).
 
-## 18. Roadmap
-
-- Writer- and signature-verification networks trained on licensed datasets (writer-disjoint protocol already in notebook 03)
-- On-device sentence embeddings for semantic paraphrase detection
-- Handwriting-capable OCR and more languages
-- Splice detection (noise/compression inconsistency) alongside copy-move
-- Optional, consented external source search
-- Firefox and Safari runs in CI
-
-See [CHANGELOG.md](CHANGELOG.md) for what changed in each release.
-
-## 19. Credits and licences
+## Credits and licences
 
 S-Way is released under the **MIT licence** (© 2026 Swayam Shakya). Bundled third-party components keep their own licences:
 
@@ -359,7 +191,7 @@ S-Way is released under the **MIT licence** (© 2026 Swayam Shakya). Bundled thi
 
 Methods draw on published work, including Sauvola & Pietikäinen (adaptive binarisation), Fridrich, Soukal & Lukáš (copy-move detection), Bulacu & Schomaker (edge-hinge writer features), Burrows (function-word stylometry), Liu, Ting & Zhou (Isolation Forest) and Wang et al. (SSIM).
 
-## 20. Author
+## Author
 
 **Swayam Shakya** — concept, design, implementation, research and documentation of S-Way (SmartWay).
 
