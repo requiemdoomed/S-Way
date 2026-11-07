@@ -6,7 +6,7 @@
 
 **Beyond Similarity. Into Document Intelligence.**
 
-Runs entirely in your browser — no server, no uploads, no tracking
+Runs entirely in your browser — no server, no data-storing, no tracking, no hassle 
 
 </div>
 
