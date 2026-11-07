@@ -88,3 +88,5 @@ S-Way writes nothing to any log. Console output is limited to two generic messag
 4. **Memory remanence** as described under *Secure-deletion limitation*.
 5. **Malicious browser extensions** can read any page's content; S-Way cannot defend against a compromised browser.
 6. **Saved reports** (opt-in) are unencrypted in IndexedDB.
+
+### Author: Swayam Shakya (2026)
